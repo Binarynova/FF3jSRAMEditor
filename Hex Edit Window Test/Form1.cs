@@ -21,6 +21,7 @@ namespace Hex_Edit_Window_Test
     public partial class Form1 : Form
     {
         OpenFileDialog openFileDialog1 = new OpenFileDialog();
+        
 
         public Label[] defineInvSlotList()
         {
@@ -849,8 +850,13 @@ namespace Hex_Edit_Window_Test
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            openFileDialog1.Filter = "NES Save Files|*.sav";
+            openFileDialog1.FilterIndex = 1;
+            
             if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
+                
+                
                 using (var stream = new FileStream(openFileDialog1.FileName, FileMode.Open, FileAccess.Read))
                 {
                     ReadFromSRAM(stream);
