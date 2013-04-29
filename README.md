@@ -4,7 +4,7 @@ Final Fantasy 3j SRAM Editor
 
 Version 1.1 by Thomas Knight
 
-This is a save file editor for Final Fantasy 3j (NES). This program should work with any .save
+This is a save file editor for Final Fantasy 3j (NES). This program should work with any .sav
 file regardless of which emulator you're using.
 
 What can be changed?
