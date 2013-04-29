@@ -89,6 +89,8 @@ namespace Hex_Edit_Window_Test
                                             "Thief",     "Scholar", "Geomancer", "Dragoon",      "Viking",       "Karateka",   "Magic Knight", "Conjurer",
                                             "Bard",      "Warlock", "Shaman",    "Summoner",     "Sage",         "Ninja"};
 
+        string[] followerNames = new string[9] { "None", "Sara", "Cid", "Desh", "None?", "Elia", "Allus", "Dorga", "Unne" };
+        
         public void ItemLoopRead(System.IO.FileStream stream)
         {
             Label[] invSlotList = defineInvSlotList();
@@ -497,7 +499,10 @@ namespace Hex_Edit_Window_Test
             ///////////////////////////////////////////
             ///// Write FOLLWOING
             stream.Position = 0x40b;
-            stream.WriteByte((byte)numericUpDown1.Value);
+            for (int i = 0; i < 9; i++)
+            {
+                if (followerBox.Text == followerNames[i]) { stream.WriteByte((byte)i); break; }
+            }
             ///// End FOLLOWING section.
             ///////////////////////////////////////////
 
@@ -826,7 +831,13 @@ namespace Hex_Edit_Window_Test
             ///////////////////////////////////////////
             ///// Read FOLLWING from file.
             stream.Position = 0x40b;
-            numericUpDown1.Value = stream.ReadByte();
+            int followerID = stream.ReadByte();
+
+            for (int i = 0; i < 9; i++)
+            {
+                if (followerID == i) { followerBox.SelectedItem = followerNames[i]; break; }
+            }
+            
             ///// End FOLLWOING section.
             ///////////////////////////////////////////
         }
@@ -904,7 +915,8 @@ namespace Hex_Edit_Window_Test
         private void Form1_Load(object sender, EventArgs e)
         {
             listBox1.Items.AddRange(itemNames);
-            worldMapBox.Items.AddRange(worldNames);            
+            worldMapBox.Items.AddRange(worldNames);
+            followerBox.Items.AddRange(followerNames);
         }
 
         private void rmZerosButton_Click(object sender, EventArgs e)

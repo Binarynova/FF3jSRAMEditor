@@ -31,6 +31,9 @@
             this.goldBox = new System.Windows.Forms.NumericUpDown();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.saveCountBox = new System.Windows.Forms.NumericUpDown();
             this.label56 = new System.Windows.Forms.Label();
             this.worldMapBox = new System.Windows.Forms.ComboBox();
             this.bigAirshipCheck = new System.Windows.Forms.CheckBox();
@@ -223,13 +226,11 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.discardButton = new System.Windows.Forms.Button();
             this.labelFileLoaded = new System.Windows.Forms.Label();
-            this.saveCountBox = new System.Windows.Forms.NumericUpDown();
-            this.label57 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label58 = new System.Windows.Forms.Label();
+            this.followerBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.goldBox)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.saveCountBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bigAirshipY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bigAirshipX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.airshipY)).BeginInit();
@@ -312,8 +313,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.invQuan3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.invQuan1)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.saveCountBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // goldBox
@@ -345,8 +344,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.followerBox);
             this.tabPage1.Controls.Add(this.label58);
-            this.tabPage1.Controls.Add(this.numericUpDown1);
             this.tabPage1.Controls.Add(this.label57);
             this.tabPage1.Controls.Add(this.saveCountBox);
             this.tabPage1.Controls.Add(this.label56);
@@ -379,6 +378,36 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(384, 80);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(49, 13);
+            this.label58.TabIndex = 31;
+            this.label58.Text = "Follower:";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(384, 8);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(63, 13);
+            this.label57.TabIndex = 29;
+            this.label57.Text = "Save Count";
+            // 
+            // saveCountBox
+            // 
+            this.saveCountBox.Location = new System.Drawing.Point(384, 24);
+            this.saveCountBox.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.saveCountBox.Name = "saveCountBox";
+            this.saveCountBox.Size = new System.Drawing.Size(40, 20);
+            this.saveCountBox.TabIndex = 28;
             // 
             // label56
             // 
@@ -2545,7 +2574,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -2579,42 +2608,13 @@
             this.labelFileLoaded.TabIndex = 9;
             this.labelFileLoaded.Text = "File not loaded.";
             // 
-            // saveCountBox
+            // followerBox
             // 
-            this.saveCountBox.Location = new System.Drawing.Point(384, 24);
-            this.saveCountBox.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.saveCountBox.Name = "saveCountBox";
-            this.saveCountBox.Size = new System.Drawing.Size(40, 20);
-            this.saveCountBox.TabIndex = 28;
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(384, 8);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(63, 13);
-            this.label57.TabIndex = 29;
-            this.label57.Text = "Save Count";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(384, 104);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(32, 20);
-            this.numericUpDown1.TabIndex = 30;
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(384, 88);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(49, 13);
-            this.label58.TabIndex = 31;
-            this.label58.Text = "Follower:";
+            this.followerBox.FormattingEnabled = true;
+            this.followerBox.Location = new System.Drawing.Point(384, 96);
+            this.followerBox.Name = "followerBox";
+            this.followerBox.Size = new System.Drawing.Size(104, 21);
+            this.followerBox.TabIndex = 32;
             // 
             // Form1
             // 
@@ -2634,6 +2634,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.saveCountBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bigAirshipY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bigAirshipX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.airshipY)).EndInit();
@@ -2722,8 +2723,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.invQuan1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.saveCountBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2928,8 +2927,8 @@
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.NumericUpDown saveCountBox;
         private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.ComboBox followerBox;
     }
 }
 
