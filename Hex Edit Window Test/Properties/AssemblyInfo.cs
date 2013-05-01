@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Final Fantasy 3j SRAM Editor")]
-[assembly: AssemblyDescription("A program for editing your save files for FF3j.\r\n\r\nTest.")]
+[assembly: AssemblyDescription("A program for editing your save files for FF3j.\r\n\r\nThanks go out to Sanite for his FF3 SRAM hacking guide from 2001, and the website Data Crystal for even more info. Also users at Stackoverflow for answering some questions and to my brother for getting me interested in coding again.\r\n\r\nThe code for this project is available at http://www.github.com.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Final Fantasy 3j SRAM Editor")]
