@@ -53,6 +53,7 @@ namespace Hex_Edit_Window_Test
             return jobBoxList;
         }
 
+
         string[] itemNames = new string[256]
         {"-",                 "Kaiser (Claw)",     "CatClaw (Claw)",    "Dragon (Claw)",      "Elven (Claw)",      "HellClaw (Claw)",    "Nunchuck",          "Tonfa (Nunchuck)",   "3-Part (Nunchuck)",
         "Mithril (Rod)",      "Flame (Rod)",       "Ice (Rod)",         "Light (Rod)",        "Ultimate (Rod)",    "Staff",              "Burning (Staff)",   "Freezing (Staff)",   "Shining (Staff)",
@@ -419,28 +420,28 @@ namespace Hex_Edit_Window_Test
 
             ///////////////////////////////////////
             ///// Write STATS to file.
-            stream.Position = 0x517;   
+            stream.Position = 0x512;   
             stream.WriteByte((byte)(charStr1.Value));
             stream.WriteByte((byte)(charAgi1.Value));
             stream.WriteByte((byte)(charVit1.Value));
             stream.WriteByte((byte)(charInt1.Value));
             stream.WriteByte((byte)(charSpi1.Value));
 
-            stream.Position = 0x557;   
+            stream.Position = 0x552;   
             stream.WriteByte((byte)(charStr2.Value));
             stream.WriteByte((byte)(charAgi2.Value));
             stream.WriteByte((byte)(charVit2.Value));
             stream.WriteByte((byte)(charInt2.Value));
             stream.WriteByte((byte)(charSpi2.Value));
 
-            stream.Position = 0x597;   
+            stream.Position = 0x592;   
             stream.WriteByte((byte)(charStr3.Value));
             stream.WriteByte((byte)(charAgi3.Value));
             stream.WriteByte((byte)(charVit3.Value));
             stream.WriteByte((byte)(charInt3.Value));
             stream.WriteByte((byte)(charSpi3.Value));
 
-            stream.Position = 0x5d7;    
+            stream.Position = 0x5d2;    
             stream.WriteByte((byte)(charStr4.Value));
             stream.WriteByte((byte)(charAgi4.Value));
             stream.WriteByte((byte)(charVit4.Value));
@@ -457,9 +458,17 @@ namespace Hex_Edit_Window_Test
             stream.WriteByte((byte)(charY.Value));            
 
             //Airship
-            stream.Position = 0x401; 
-            stream.WriteByte((byte)(airshipX.Value));
-            stream.WriteByte((byte)(airshipY.Value));
+            stream.Position = 0x401;
+            int airshipXTest = (int)airshipX.Value + 7;
+            int airshipYTest = (int)airshipY.Value + 7;
+
+            if (airshipXTest > 255) { airshipXTest = 0x00 + airshipXTest; }
+            else { airshipXTest = (int)airshipX.Value + 7; }
+            if (airshipYTest > 255) { airshipYTest = 0x00 + airshipYTest; }
+            else { airshipYTest = (int)airshipY.Value + 7; }
+
+            stream.WriteByte((byte)(airshipXTest));
+            stream.WriteByte((byte)(airshipYTest));
             stream.Position = 0x400;
             if (airshipCheck.Checked == true) { stream.WriteByte(0x01); }
             else { stream.WriteByte(0x00); }
@@ -750,28 +759,28 @@ namespace Hex_Edit_Window_Test
 
             ///////////////////////////////////////
             ///// Read STATS from file.
-            stream.Position = 0x517;    
+            stream.Position = 0x512;    
             charStr1.Value = stream.ReadByte();
             charAgi1.Value = stream.ReadByte();
             charVit1.Value = stream.ReadByte();
             charInt1.Value = stream.ReadByte();
             charSpi1.Value = stream.ReadByte();
 
-            stream.Position = 0x557;    
+            stream.Position = 0x552;    
             charStr2.Value = stream.ReadByte();
             charAgi2.Value = stream.ReadByte();
             charVit2.Value = stream.ReadByte();
             charInt2.Value = stream.ReadByte();
             charSpi2.Value = stream.ReadByte();
 
-            stream.Position = 0x597;    
+            stream.Position = 0x592;    
             charStr3.Value = stream.ReadByte();
             charAgi3.Value = stream.ReadByte();
             charVit3.Value = stream.ReadByte();
             charInt3.Value = stream.ReadByte();
             charSpi3.Value = stream.ReadByte();
 
-            stream.Position = 0x5d7;    
+            stream.Position = 0x5d2;    
             charStr4.Value = stream.ReadByte();
             charAgi4.Value = stream.ReadByte();
             charVit4.Value = stream.ReadByte();
@@ -789,8 +798,15 @@ namespace Hex_Edit_Window_Test
 
             // Airship
             stream.Position = 0x401; 
-            airshipX.Value = stream.ReadByte();
-            airshipY.Value = stream.ReadByte();
+            int airshipXTest = stream.ReadByte() - 7;
+            int airshipYTest = stream.ReadByte() - 7;
+
+            if (airshipXTest < 0) { airshipX.Value = 0xFF + airshipXTest; }
+            else { airshipX.Value = airshipXTest; }
+
+            if (airshipYTest < 0) { airshipY.Value = 0xFF + airshipYTest; }
+            else { airshipY.Value = airshipYTest; }
+
             stream.Position = 0x400;
                 if (stream.ReadByte() == 0x01) { airshipCheck.Checked = true; }
                 else { airshipCheck.Checked = false; }
@@ -823,24 +839,23 @@ namespace Hex_Edit_Window_Test
             ///////////////////////////////////////////////  
          
             ///////////////////////////////////////////
-            ///// Read SAVE COUNT
+            ///// Read SAVE COUNT from file.
             stream.Position = 0x414;
             saveCountBox.Value = stream.ReadByte();
             ///// End SAVE COUNT section.
             ///////////////////////////////////////////
 
             ///////////////////////////////////////////
-            ///// Read FOLLWING from file.
+            ///// Read FOLLOWING from file.
             stream.Position = 0x40b;
             int followerID = stream.ReadByte();
 
             for (int i = 0; i < 9; i++)
             {
                 if (followerID == i) { followerBox.SelectedItem = followerNames[i]; break; }
-            }
-            
+            }            
             ///// End FOLLWOING section.
-            ///////////////////////////////////////////
+            ///////////////////////////////////////////            
         }
 
         public Form1()

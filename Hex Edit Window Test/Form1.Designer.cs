@@ -31,6 +31,7 @@
             this.goldBox = new System.Windows.Forms.NumericUpDown();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.followerBox = new System.Windows.Forms.ComboBox();
             this.label58 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.saveCountBox = new System.Windows.Forms.NumericUpDown();
@@ -226,7 +227,10 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.discardButton = new System.Windows.Forms.Button();
             this.labelFileLoaded = new System.Windows.Forms.Label();
-            this.followerBox = new System.Windows.Forms.ComboBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label60 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.goldBox)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -378,6 +382,14 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // followerBox
+            // 
+            this.followerBox.FormattingEnabled = true;
+            this.followerBox.Location = new System.Drawing.Point(384, 96);
+            this.followerBox.Name = "followerBox";
+            this.followerBox.Size = new System.Drawing.Size(104, 21);
+            this.followerBox.TabIndex = 32;
             // 
             // label58
             // 
@@ -631,6 +643,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label59);
             this.tabPage2.Controls.Add(this.label43);
             this.tabPage2.Controls.Add(this.label42);
             this.tabPage2.Controls.Add(this.charMaxHP1);
@@ -910,6 +923,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label60);
             this.tabPage3.Controls.Add(this.label44);
             this.tabPage3.Controls.Add(this.label45);
             this.tabPage3.Controls.Add(this.charMaxHP2);
@@ -1189,6 +1203,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.label61);
             this.tabPage4.Controls.Add(this.label46);
             this.tabPage4.Controls.Add(this.label47);
             this.tabPage4.Controls.Add(this.charMaxHP3);
@@ -1467,6 +1482,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.label62);
             this.tabPage5.Controls.Add(this.label48);
             this.tabPage5.Controls.Add(this.label49);
             this.tabPage5.Controls.Add(this.charMaxHP4);
@@ -2608,13 +2624,41 @@
             this.labelFileLoaded.TabIndex = 9;
             this.labelFileLoaded.Text = "File not loaded.";
             // 
-            // followerBox
+            // label59
             // 
-            this.followerBox.FormattingEnabled = true;
-            this.followerBox.Location = new System.Drawing.Point(384, 96);
-            this.followerBox.Name = "followerBox";
-            this.followerBox.Size = new System.Drawing.Size(104, 21);
-            this.followerBox.TabIndex = 32;
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(8, 120);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(110, 13);
+            this.label59.TabIndex = 22;
+            this.label59.Text = "Stats (Without Equip):";
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(8, 120);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(110, 13);
+            this.label60.TabIndex = 32;
+            this.label60.Text = "Stats (Without Equip):";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(8, 120);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(110, 13);
+            this.label61.TabIndex = 42;
+            this.label61.Text = "Stats (Without Equip):";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(8, 120);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(110, 13);
+            this.label62.TabIndex = 42;
+            this.label62.Text = "Stats (Without Equip):";
             // 
             // Form1
             // 
@@ -2929,6 +2973,10 @@
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.ComboBox followerBox;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label62;
     }
 }
 
