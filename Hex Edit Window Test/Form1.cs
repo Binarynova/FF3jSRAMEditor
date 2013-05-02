@@ -306,11 +306,13 @@ namespace Hex_Edit_Window_Test
             {                
                 for (int j = 0; j < 22; j++)
                 {
-                    if ((string)(jobBoxList[i].SelectedItem) == jobNames[j]) { charJobNumber[i] = j; }
+                    if ((string)(jobBoxList[i].SelectedItem) == jobNames[j]) { charJobNumber[i] = j; }                    
                 }
 
                 stream.Position = 0x500 + (i * 0x40);
                 stream.WriteByte((byte)charJobNumber[i]);
+
+                
             }
             ///// End of JOBS section.
             ///////////////////////////////////
@@ -457,9 +459,9 @@ namespace Hex_Edit_Window_Test
             //Player
             stream.Position = 0x409; 
             stream.WriteByte((byte)(charX.Value));
-            stream.WriteByte((byte)(charY.Value));            
+            stream.WriteByte((byte)(charY.Value));
 
-            //Airship
+            /*//Airship
             stream.Position = 0x401;
             int airshipXTest = (int)airshipX.Value + 7;
             int airshipYTest = (int)airshipY.Value + 7;
@@ -475,13 +477,14 @@ namespace Hex_Edit_Window_Test
             if (airshipCheck.Checked == true) { stream.WriteByte(0x01); }
             else { stream.WriteByte(0x00); }
 
+            
             //Big Airship
             stream.Position = 0x405; 
             stream.WriteByte((byte)(bigAirshipX.Value));
             stream.WriteByte((byte)(bigAirshipY.Value));
             stream.Position = 0x404;
             if (bigAirshipCheck.Checked == true) { stream.WriteByte(0x01); }
-            else { stream.WriteByte(0x00); }
+            else { stream.WriteByte(0x00); } */
             ///// End of X&Y section.
             ///////////////////////////////////////
 
@@ -523,6 +526,8 @@ namespace Hex_Edit_Window_Test
             ///// End CRYSTAL LEVEL section.
             ///////////////////////////////////////////
 
+            
+
             ///////////////////////////////////////////
             ///// Write FOLLWOING
             stream.Position = 0x40b;
@@ -532,6 +537,81 @@ namespace Hex_Edit_Window_Test
             }
             ///// End FOLLOWING section.
             ///////////////////////////////////////////
+
+            ////////////////////////////////////////////////////
+            ///// Write MP to file.
+            stream.Position = 0x530;
+            stream.WriteByte((byte)mpLevel1A.Value);
+            stream.WriteByte((byte)maxMpLevel1A.Value);
+            stream.WriteByte((byte)mpLevel2A.Value);
+            stream.WriteByte((byte)maxMpLevel2A.Value);
+            stream.WriteByte((byte)mpLevel3A.Value);
+            stream.WriteByte((byte)maxMpLevel3A.Value);
+            stream.WriteByte((byte)mpLevel4A.Value);
+            stream.WriteByte((byte)maxMpLevel4A.Value);
+            stream.WriteByte((byte)mpLevel5A.Value);
+            stream.WriteByte((byte)maxMpLevel5A.Value);
+            stream.WriteByte((byte)mpLevel6A.Value);
+            stream.WriteByte((byte)maxMpLevel6A.Value);
+            stream.WriteByte((byte)mpLevel7A.Value);
+            stream.WriteByte((byte)maxMpLevel7A.Value);
+            stream.WriteByte((byte)mpLevel8A.Value);
+            stream.WriteByte((byte)maxMpLevel8A.Value);
+
+            stream.Position = 0x570;
+            stream.WriteByte((byte)mpLevel1B.Value);
+            stream.WriteByte((byte)maxMpLevel1B.Value);
+            stream.WriteByte((byte)mpLevel2B.Value);
+            stream.WriteByte((byte)maxMpLevel2B.Value);
+            stream.WriteByte((byte)mpLevel3B.Value);
+            stream.WriteByte((byte)maxMpLevel3B.Value);
+            stream.WriteByte((byte)mpLevel4B.Value);
+            stream.WriteByte((byte)maxMpLevel4B.Value);
+            stream.WriteByte((byte)mpLevel5B.Value);
+            stream.WriteByte((byte)maxMpLevel5B.Value);
+            stream.WriteByte((byte)mpLevel6B.Value);
+            stream.WriteByte((byte)maxMpLevel6B.Value);
+            stream.WriteByte((byte)mpLevel7B.Value);
+            stream.WriteByte((byte)maxMpLevel7B.Value);
+            stream.WriteByte((byte)mpLevel8B.Value);
+            stream.WriteByte((byte)maxMpLevel8B.Value);
+
+            stream.Position = 0x5b0;
+            stream.WriteByte((byte)mpLevel1C.Value);
+            stream.WriteByte((byte)maxMpLevel1C.Value);
+            stream.WriteByte((byte)mpLevel2C.Value);
+            stream.WriteByte((byte)maxMpLevel2C.Value);
+            stream.WriteByte((byte)mpLevel3C.Value);
+            stream.WriteByte((byte)maxMpLevel3C.Value);
+            stream.WriteByte((byte)mpLevel4C.Value);
+            stream.WriteByte((byte)maxMpLevel4C.Value);
+            stream.WriteByte((byte)mpLevel5C.Value);
+            stream.WriteByte((byte)maxMpLevel5C.Value);
+            stream.WriteByte((byte)mpLevel6C.Value);
+            stream.WriteByte((byte)maxMpLevel6C.Value);
+            stream.WriteByte((byte)mpLevel7C.Value);
+            stream.WriteByte((byte)maxMpLevel7C.Value);
+            stream.WriteByte((byte)mpLevel8C.Value);
+            stream.WriteByte((byte)maxMpLevel8C.Value);
+
+            stream.Position = 0x5f0;
+            stream.WriteByte((byte)mpLevel1D.Value);
+            stream.WriteByte((byte)maxMpLevel1D.Value);
+            stream.WriteByte((byte)mpLevel2D.Value);
+            stream.WriteByte((byte)maxMpLevel2D.Value);
+            stream.WriteByte((byte)mpLevel3D.Value);
+            stream.WriteByte((byte)maxMpLevel3D.Value);
+            stream.WriteByte((byte)mpLevel4D.Value);
+            stream.WriteByte((byte)maxMpLevel4D.Value);
+            stream.WriteByte((byte)mpLevel5D.Value);
+            stream.WriteByte((byte)maxMpLevel5D.Value);
+            stream.WriteByte((byte)mpLevel6D.Value);
+            stream.WriteByte((byte)maxMpLevel6D.Value);
+            stream.WriteByte((byte)mpLevel7D.Value);
+            stream.WriteByte((byte)maxMpLevel7D.Value);
+            stream.WriteByte((byte)mpLevel8D.Value);
+            stream.WriteByte((byte)maxMpLevel8D.Value);
+
 
             //////////////////////////////
             ///// ADD NEW EDITS HERE!!!
@@ -813,7 +893,7 @@ namespace Hex_Edit_Window_Test
             charX.Value = stream.ReadByte();
             charY.Value = stream.ReadByte();
 
-            // Airship
+            /*// Airship
             stream.Position = 0x401; 
             int airshipXTest = stream.ReadByte() - 7;
             int airshipYTest = stream.ReadByte() - 7;
@@ -834,7 +914,7 @@ namespace Hex_Edit_Window_Test
             bigAirshipY.Value = stream.ReadByte();
             stream.Position = 0x404;
                 if (stream.ReadByte() == 0x01) { bigAirshipCheck.Checked = true; }
-                else { bigAirshipCheck.Checked = false; }
+                else { bigAirshipCheck.Checked = false; }*/
             ///// End of X&Y section.
             ///////////////////////////////////////
 
@@ -886,7 +966,82 @@ namespace Hex_Edit_Window_Test
                 if (followerID == i) { followerBox.SelectedItem = followerNames[i]; break; }
             }            
             ///// End FOLLWOING section.
-            ///////////////////////////////////////////            
+            ///////////////////////////////////////////  
+
+            ///////////////////////////////////////////
+            ///// Read MP from file.
+            stream.Position = 0x530;
+            mpLevel1A.Value = stream.ReadByte();
+            maxMpLevel1A.Value = stream.ReadByte();
+            mpLevel2A.Value = stream.ReadByte();
+            maxMpLevel2A.Value = stream.ReadByte();
+            mpLevel3A.Value = stream.ReadByte();
+            maxMpLevel3A.Value = stream.ReadByte();
+            mpLevel4A.Value = stream.ReadByte();
+            maxMpLevel4A.Value = stream.ReadByte();
+            mpLevel5A.Value = stream.ReadByte();
+            maxMpLevel5A.Value = stream.ReadByte();
+            mpLevel6A.Value = stream.ReadByte();
+            maxMpLevel6A.Value = stream.ReadByte();
+            mpLevel7A.Value = stream.ReadByte();
+            maxMpLevel7A.Value = stream.ReadByte();
+            mpLevel8A.Value = stream.ReadByte();
+            maxMpLevel8A.Value = stream.ReadByte();
+
+            stream.Position = 0x570;
+            mpLevel1B.Value = stream.ReadByte();
+            maxMpLevel1B.Value = stream.ReadByte();
+            mpLevel2B.Value = stream.ReadByte();
+            maxMpLevel2B.Value = stream.ReadByte();
+            mpLevel3B.Value = stream.ReadByte();
+            maxMpLevel3B.Value = stream.ReadByte();
+            mpLevel4B.Value = stream.ReadByte();
+            maxMpLevel4B.Value = stream.ReadByte();
+            mpLevel5B.Value = stream.ReadByte();
+            maxMpLevel5B.Value = stream.ReadByte();
+            mpLevel6B.Value = stream.ReadByte();
+            maxMpLevel6B.Value = stream.ReadByte();
+            mpLevel7B.Value = stream.ReadByte();
+            maxMpLevel7B.Value = stream.ReadByte();
+            mpLevel8B.Value = stream.ReadByte();
+            maxMpLevel8B.Value = stream.ReadByte();
+
+            stream.Position = 0x5b0;
+            mpLevel1C.Value = stream.ReadByte();
+            maxMpLevel1C.Value = stream.ReadByte();
+            mpLevel2C.Value = stream.ReadByte();
+            maxMpLevel2C.Value = stream.ReadByte();
+            mpLevel3C.Value = stream.ReadByte();
+            maxMpLevel3C.Value = stream.ReadByte();
+            mpLevel4C.Value = stream.ReadByte();
+            maxMpLevel4C.Value = stream.ReadByte();
+            mpLevel5C.Value = stream.ReadByte();
+            maxMpLevel5C.Value = stream.ReadByte();
+            mpLevel6C.Value = stream.ReadByte();
+            maxMpLevel6C.Value = stream.ReadByte();
+            mpLevel7C.Value = stream.ReadByte();
+            maxMpLevel7C.Value = stream.ReadByte();
+            mpLevel8C.Value = stream.ReadByte();
+            maxMpLevel8C.Value = stream.ReadByte();
+
+            stream.Position = 0x5f0;
+            mpLevel1D.Value = stream.ReadByte();
+            maxMpLevel1D.Value = stream.ReadByte();
+            mpLevel2D.Value = stream.ReadByte();
+            maxMpLevel2D.Value = stream.ReadByte();
+            mpLevel3D.Value = stream.ReadByte();
+            maxMpLevel3D.Value = stream.ReadByte();
+            mpLevel4D.Value = stream.ReadByte();
+            maxMpLevel4D.Value = stream.ReadByte();
+            mpLevel5D.Value = stream.ReadByte();
+            maxMpLevel5D.Value = stream.ReadByte();
+            mpLevel6D.Value = stream.ReadByte();
+            maxMpLevel6D.Value = stream.ReadByte();
+            mpLevel7D.Value = stream.ReadByte();
+            maxMpLevel7D.Value = stream.ReadByte();
+            mpLevel8D.Value = stream.ReadByte();
+            maxMpLevel8D.Value = stream.ReadByte();
+
         }
 
         public Form1()
@@ -922,7 +1077,7 @@ namespace Hex_Edit_Window_Test
          
         private void buttonSave_Click_1(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Save all changes?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Save changes on ALL tabs?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 using (var stream = new FileStream(openFileDialog1.FileName, FileMode.Open, FileAccess.ReadWrite))
@@ -935,7 +1090,7 @@ namespace Hex_Edit_Window_Test
 
         private void discardButton_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Discard all changes?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show("Discard changes on ALL tabs?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 using (var stream = new FileStream(openFileDialog1.FileName, FileMode.Open, FileAccess.Read))
@@ -987,6 +1142,50 @@ namespace Hex_Edit_Window_Test
         {
             AboutBox1 box = new AboutBox1();
             box.ShowDialog();
+        }
+
+        private void charJobBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if ((charJobBox1.Text == "White Wizard" || charJobBox1.Text == "Black Wizard" || charJobBox1.Text == "Red Wizard" || charJobBox1.Text == "Hunter" ||
+                charJobBox1.Text == "Magic Knight" || charJobBox1.Text == "Conjurer" || charJobBox1.Text == "Summoner" || charJobBox1.Text == "Shaman" ||
+                charJobBox1.Text == "Warlock" || charJobBox1.Text == "Sage") && ( maxMpLevel1A.Value == 0 && maxMpLevel2A.Value == 0 && maxMpLevel3A.Value == 0 && maxMpLevel4A.Value == 0 && 
+                maxMpLevel5A.Value == 0 && maxMpLevel6A.Value == 0 && maxMpLevel7A.Value == 0 && maxMpLevel8A.Value == 0))
+                {
+                    DialogResult result = MessageBox.Show("Warning! Be sure to give this character magic points, or the game may freeze during battle.", "Notice!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+        }
+
+        private void charJobBox2_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if ((charJobBox2.Text == "White Wizard" || charJobBox2.Text == "Black Wizard" || charJobBox2.Text == "Red Wizard" || charJobBox2.Text == "Hunter" ||
+                charJobBox2.Text == "Magic Knight" || charJobBox2.Text == "Conjurer" || charJobBox2.Text == "Summoner" || charJobBox2.Text == "Shaman" ||
+                charJobBox2.Text == "Warlock" || charJobBox2.Text == "Sage") && (maxMpLevel1B.Value == 0 && maxMpLevel2B.Value == 0 && maxMpLevel3B.Value == 0 && maxMpLevel4B.Value == 0 &&
+                maxMpLevel5B.Value == 0 && maxMpLevel6B.Value == 0 && maxMpLevel7B.Value == 0 && maxMpLevel8B.Value == 0))
+            {
+                DialogResult result = MessageBox.Show("Warning! Be sure to give this character magic points, or the game may freeze during battle.", "Notice!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void charJobBox3_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if ((charJobBox3.Text == "White Wizard" || charJobBox3.Text == "Black Wizard" || charJobBox3.Text == "Red Wizard" || charJobBox3.Text == "Hunter" ||
+                charJobBox3.Text == "Magic Knight" || charJobBox3.Text == "Conjurer" || charJobBox3.Text == "Summoner" || charJobBox3.Text == "Shaman" ||
+                charJobBox3.Text == "Warlock" || charJobBox3.Text == "Sage") && (maxMpLevel1C.Value == 0 && maxMpLevel2C.Value == 0 && maxMpLevel3C.Value == 0 && maxMpLevel4C.Value == 0 &&
+                maxMpLevel5C.Value == 0 && maxMpLevel6C.Value == 0 && maxMpLevel7C.Value == 0 && maxMpLevel8C.Value == 0))
+            {
+                DialogResult result = MessageBox.Show("Warning! Be sure to give this character magic points, or the game may freeze during battle.", "Notice!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void charJobBox4_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if ((charJobBox4.Text == "White Wizard" || charJobBox4.Text == "Black Wizard" || charJobBox4.Text == "Red Wizard" || charJobBox4.Text == "Hunter" ||
+                charJobBox4.Text == "Magic Knight" || charJobBox4.Text == "Conjurer" || charJobBox4.Text == "Summoner" || charJobBox4.Text == "Shaman" ||
+                charJobBox4.Text == "Warlock" || charJobBox4.Text == "Sage") && (maxMpLevel1D.Value == 0 && maxMpLevel2D.Value == 0 && maxMpLevel3D.Value == 0 && maxMpLevel4D.Value == 0 &&
+                maxMpLevel5D.Value == 0 && maxMpLevel6D.Value == 0 && maxMpLevel7D.Value == 0 && maxMpLevel8D.Value == 0))
+            {
+                DialogResult result = MessageBox.Show("Warning! Be sure to give this character magic points, or the game may freeze during battle.", "Notice!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
