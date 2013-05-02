@@ -58,6 +58,7 @@
             this.capacityBox = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label59 = new System.Windows.Forms.Label();
             this.label43 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.charMaxHP1 = new System.Windows.Forms.NumericUpDown();
@@ -81,6 +82,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.nameBox1 = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label60 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.charMaxHP2 = new System.Windows.Forms.NumericUpDown();
@@ -104,6 +106,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.nameBox2 = new System.Windows.Forms.TextBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label61 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.charMaxHP3 = new System.Windows.Forms.NumericUpDown();
@@ -127,6 +130,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.nameBox3 = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label62 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.label49 = new System.Windows.Forms.Label();
             this.charMaxHP4 = new System.Windows.Forms.NumericUpDown();
@@ -227,10 +231,8 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.discardButton = new System.Windows.Forms.Button();
             this.labelFileLoaded = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label60 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
+            this.crystalLevelBox = new System.Windows.Forms.ComboBox();
+            this.label63 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.goldBox)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -348,6 +350,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label63);
+            this.tabPage1.Controls.Add(this.crystalLevelBox);
             this.tabPage1.Controls.Add(this.followerBox);
             this.tabPage1.Controls.Add(this.label58);
             this.tabPage1.Controls.Add(this.label57);
@@ -385,6 +389,7 @@
             // 
             // followerBox
             // 
+            this.followerBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.followerBox.FormattingEnabled = true;
             this.followerBox.Location = new System.Drawing.Point(384, 96);
             this.followerBox.Name = "followerBox";
@@ -432,6 +437,7 @@
             // 
             // worldMapBox
             // 
+            this.worldMapBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.worldMapBox.FormattingEnabled = true;
             this.worldMapBox.Location = new System.Drawing.Point(128, 96);
             this.worldMapBox.Name = "worldMapBox";
@@ -673,6 +679,15 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "1st Character";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Location = new System.Drawing.Point(8, 120);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(110, 13);
+            this.label59.TabIndex = 22;
+            this.label59.Text = "Stats (Without Equip):";
             // 
             // label43
             // 
@@ -954,6 +969,15 @@
             this.tabPage3.Text = "2nd Character";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Location = new System.Drawing.Point(8, 120);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(110, 13);
+            this.label60.TabIndex = 32;
+            this.label60.Text = "Stats (Without Equip):";
+            // 
             // label44
             // 
             this.label44.AutoSize = true;
@@ -1233,6 +1257,15 @@
             this.tabPage4.Text = "3rd Character";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(8, 120);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(110, 13);
+            this.label61.TabIndex = 42;
+            this.label61.Text = "Stats (Without Equip):";
+            // 
             // label46
             // 
             this.label46.AutoSize = true;
@@ -1511,6 +1544,15 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "4th Character";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(8, 120);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(110, 13);
+            this.label62.TabIndex = 42;
+            this.label62.Text = "Stats (Without Equip):";
             // 
             // label48
             // 
@@ -2624,41 +2666,23 @@
             this.labelFileLoaded.TabIndex = 9;
             this.labelFileLoaded.Text = "File not loaded.";
             // 
-            // label59
+            // crystalLevelBox
             // 
-            this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(8, 120);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(110, 13);
-            this.label59.TabIndex = 22;
-            this.label59.Text = "Stats (Without Equip):";
+            this.crystalLevelBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.crystalLevelBox.FormattingEnabled = true;
+            this.crystalLevelBox.Location = new System.Drawing.Point(384, 168);
+            this.crystalLevelBox.Name = "crystalLevelBox";
+            this.crystalLevelBox.Size = new System.Drawing.Size(136, 21);
+            this.crystalLevelBox.TabIndex = 34;
             // 
-            // label60
+            // label63
             // 
-            this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(8, 120);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(110, 13);
-            this.label60.TabIndex = 32;
-            this.label60.Text = "Stats (Without Equip):";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(8, 120);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(110, 13);
-            this.label61.TabIndex = 42;
-            this.label61.Text = "Stats (Without Equip):";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(8, 120);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(110, 13);
-            this.label62.TabIndex = 42;
-            this.label62.Text = "Stats (Without Equip):";
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(384, 152);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(122, 13);
+            this.label63.TabIndex = 35;
+            this.label63.Text = "Level of Jobs Unlocked:";
             // 
             // Form1
             // 
@@ -2977,6 +3001,8 @@
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.ComboBox crystalLevelBox;
+        private System.Windows.Forms.Label label63;
     }
 }
 

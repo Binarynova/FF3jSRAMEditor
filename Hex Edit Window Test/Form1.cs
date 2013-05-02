@@ -91,7 +91,9 @@ namespace Hex_Edit_Window_Test
                                             "Thief",     "Scholar", "Geomancer", "Dragoon",      "Viking",       "Karateka",   "Magic Knight", "Conjurer",
                                             "Bard",      "Warlock", "Shaman",    "Summoner",     "Sage",         "Ninja"};
 
-        string[] followerNames = new string[9] { "None", "Sara", "Cid", "Desh", "None?", "Elia", "Allus", "Dorga", "Unne" };
+        string[] followerNames = new string[9] { "None", "Sara", "Cid", "Desh", "\"Shadow\"", "Elia", "Allus", "Dorga", "Unne" };
+
+        string[] crystalLevels = new string[6] { "Job Menu Locked", "Wind Crystal", "Fire Crystal", "Water Crystal", "Earth Crystal", "Forbidden Land Eureka" };
         
         public void ItemLoopRead(System.IO.FileStream stream)
         {
@@ -507,6 +509,21 @@ namespace Hex_Edit_Window_Test
             ///////////////////////////////////////////
 
             ///////////////////////////////////////////
+            ///// Write CRYSTAL LEVEL
+            stream.Position = 0x421;
+            string tempWriteCrystal = crystalLevelBox.Text;
+            
+            if (tempWriteCrystal == crystalLevels[0]) { stream.WriteByte(0); }
+            else if (tempWriteCrystal == crystalLevels[1]) { stream.WriteByte(1); }
+            else if (tempWriteCrystal == crystalLevels[2]) { stream.WriteByte(3); }
+            else if (tempWriteCrystal == crystalLevels[3]) { stream.WriteByte(7); }
+            else if (tempWriteCrystal == crystalLevels[4]) { stream.WriteByte(15); }
+            else if (tempWriteCrystal == crystalLevels[5]) { stream.WriteByte(31); }
+
+            ///// End CRYSTAL LEVEL section.
+            ///////////////////////////////////////////
+
+            ///////////////////////////////////////////
             ///// Write FOLLWOING
             stream.Position = 0x40b;
             for (int i = 0; i < 9; i++)
@@ -846,6 +863,20 @@ namespace Hex_Edit_Window_Test
             ///////////////////////////////////////////
 
             ///////////////////////////////////////////
+            ///// Read CRYSTAL LEVEL from file.
+            stream.Position = 0x421;
+            int tempCrystalLevel = stream.ReadByte();
+
+            if (tempCrystalLevel == 0) { crystalLevelBox.Text = crystalLevels[0]; }
+            else if (tempCrystalLevel == 1) { crystalLevelBox.Text = crystalLevels[1]; }
+            else if (tempCrystalLevel == 3) { crystalLevelBox.Text = crystalLevels[2]; }
+            else if (tempCrystalLevel == 7) { crystalLevelBox.Text = crystalLevels[3]; }
+            else if (tempCrystalLevel == 15) { crystalLevelBox.Text = crystalLevels[4]; }
+            else if (tempCrystalLevel == 31) { crystalLevelBox.Text = crystalLevels[5]; }
+            ///// End CRYSTAL LEVEL section.
+            ///////////////////////////////////////////
+
+            ///////////////////////////////////////////
             ///// Read FOLLOWING from file.
             stream.Position = 0x40b;
             int followerID = stream.ReadByte();
@@ -938,6 +969,7 @@ namespace Hex_Edit_Window_Test
             listBox1.Items.AddRange(itemNames);
             worldMapBox.Items.AddRange(worldNames);
             followerBox.Items.AddRange(followerNames);
+            crystalLevelBox.Items.AddRange(crystalLevels);
         }
 
         private void rmZerosButton_Click(object sender, EventArgs e)
