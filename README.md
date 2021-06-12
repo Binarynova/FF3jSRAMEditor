@@ -1,6 +1,5 @@
-============
 Final Fantasy 3j SRAM Editor
-============
+=
 
 Version 1.3 by Binarynova
 
