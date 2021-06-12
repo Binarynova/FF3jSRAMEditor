@@ -34,9 +34,9 @@ want. In the middle are two buttons. The top button places the item selected on 
 empty slot in your inventory, shown on the right. The second button scans the inventory for any items you've reduced
 to a quantity of '0' and removes them.
 
-=========
+
 Versions:
-=========
+=
 
 1.3
 
@@ -54,9 +54,8 @@ Added the ability to change your party's follower NPC.
 
 Mostly done!
 
-======
 Thanks:
-======
+=
 Thanks go out to Sanite for his FF3 SRAM hacking guide from 2001, and the website Data Crystal for even more info. Also users at Stackoverflow for answering some questions and to my brother for getting me interested in coding again.
 
 The Visual C# code for this project is available at http://www.github.com.
